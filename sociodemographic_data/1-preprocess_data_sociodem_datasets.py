@@ -102,7 +102,7 @@ def find_geoids_per_grid_cell(selected_city,city_folder,state,county,output_fold
   # make final output folder if it doesn't exist
   Path(f"./{output_folder}").mkdir(exist_ok=True)
 
-  df_final.to_csv(f'./{output_folder}/{city_folder}_cell_to_geoids_map.csv')
+  df_final.to_csv(f'{output_folder}/{city_folder}_cell_to_geoids_map.csv')
   print("Final cell to geoids map saved!")
 
 find_geoids_per_grid_cell(selected_city='Baltimore',city_folder='Baltimore',state='MD',county='510',output_folder='Sociodem_data_corrected/Grid_cells_0.2gu',grid_size=39)
@@ -125,7 +125,7 @@ def get_data_per_geoid_city_year(city_folder,state_fips,year,output_folder):
     gdf_list = []
     for layer_name in dic_vars:
         print("LAYER: ", layer_name)
-        gdf = gpd.read_file(f'./raw_data/ACS_{year}_5YR_BG_{state_fips}.gdb.zip',layer=layer_name)
+        gdf = gpd.read_file(f'raw_data/ACS_{year}_5YR_BG_{state_fips}.gdb.zip',layer=layer_name)
 
         # keep only the variables we are interested in and the corresponding GEOID
         vars_list = dic_vars[layer_name]
@@ -174,7 +174,7 @@ def get_data_per_geoid_city_year(city_folder,state_fips,year,output_folder):
     # drop unnecessary columns
     df_gdf.drop(columns=['B01001e1','B02001e1','B12001e2','B12001e11','B15003e1','B23025e1'],inplace=True)
 
-    df_gdf.to_csv(f'./{output_folder}/{city_folder}_sociodem_{year}.csv')
+    df_gdf.to_csv(f'{output_folder}/{city_folder}_sociodem_{year}.csv')
     print("File saved!")
 
 for year in [2019,2020,2021]:

@@ -15,18 +15,19 @@ pp_advan_wp = "https://app.deweydata.io/external-api/v3/products/50f21464-9d1b-4
 
 meta = ddp.get_meta(apikey_, pp_advan_wp, print_meta = True)
 
+# get the list of files withinn than time range
 files_df = ddp.get_file_list(apikey_, pp_advan_wp,
                              start_date = '2018-12-31',
                              end_date = '2024-01-01',
                              print_info = True);
 
+# download all the list of files
+ddp.download_files(files_df, "raw_data/", skip_exists = True)
 
-ddp.download_files(files_df, "drive/Shared drives/PhD_thesis_Albors/Mobility_data/raw_data/Advan_data_02082024_temp/", skip_exists = True)
 
 """## If some files are incorrect and need to be downloaded again"""
-
 # Specify the file path in your Google Drive
-folder_path = '/content/drive/MyDrive/PhD_thesis/Mobility_data/raw_data/Advan_data_02082024/'
+folder_path = 'raw_data/'
 
 def find_wrong_files_and_redownload(folder_path, year, week):
     # Function to generate the first Mondays of each week in the given date range
@@ -99,11 +100,12 @@ def find_wrong_files_and_redownload(folder_path, year, week):
 
             print(f'{len(wrong_files)} files have been deleted.')
             # Trigger download process for the wrong files
-            ddp.download_files(files_df, "drive/MyDrive/PhD_thesis/Mobility_data/raw_data/Advan_data_02082024/", skip_exists=True)
+            ddp.download_files(files_df, "raw_data/", skip_exists=True)
         else:
             print("No files to remove")
+
 for year in [2019,2020,2021,2022,2023]:
     for i in range(0,53):
-        find_wrong_files_and_redownload(folder_path='/content/drive/MyDrive/PhD_thesis/Mobility_data/raw_data/Advan_data_02082024/',
+        find_wrong_files_and_redownload(folder_path='raw_data/',
                                     year=year,
                                     week=i)

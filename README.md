@@ -21,8 +21,8 @@ The code is separated into two main folders and structured as follows.
 
 ### Preprocessing
 - Sociodemographic data:
-  - Raw data: Folder containing the raw data to be prepossessed. This data was obtained from the 5-years estimates of ASC.
-  - `1-preprocess_ data_sociodem_datasets.py`: First file to start the preprocessing of this data.
+  - Download the data from [ACS](https://www2.census.gov/geo/tiger/TIGER_DP/). Specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021.
+  - `1-preprocess_data_sociodem_datasets.py`: First file to start the preprocessing of this data.
   - `2-make_sociodem_grids.py`: Second and last file to finish the preprocessing of this data.
  
 - Crime data:

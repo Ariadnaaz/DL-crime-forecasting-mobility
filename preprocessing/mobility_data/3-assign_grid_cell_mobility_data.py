@@ -1,5 +1,5 @@
 import pandas as pd
-from shapely.geometry import Point, LineString
+from shapely.geometry import Point
 import shapely.geometry
 import datetime
 import geopandas as gpd

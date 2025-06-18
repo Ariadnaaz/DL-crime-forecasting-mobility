@@ -21,20 +21,21 @@ The code is separated into two main folders and structured as follows.
 
 ### Preprocessing
 - Sociodemographic data:
-  - Download the data from [ACS](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
-  - `1-preprocess_data_sociodem_datasets.py`: First file to start the preprocessing of this data.
-  - `2-make_sociodem_grids.py`: Second and last file to finish the preprocessing of this data.
+  0. Download the data from [ACS](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
+  1. `1-preprocess_data_sociodem_datasets.py`: First file to start the preprocessing of this data.
+  2. `2-make_sociodem_grids.py`: Second and last file to finish the preprocessing of this data.
  
 - Crime data:
-  - Raw data: Folder containing the raw data to be prepossessed. This data was obtained from the...
-  - `1-generate_selected_crimes_datasets.py`:
-  - `2-assign_grid_cell_crime_data.py`:
-  - `3-make_crime_final_files_with_grid_cells.py`:
+  0. Download the data for each city ([Baltimore](https://data.baltimorecity.gov/datasets/baltimore::part-1-crime-data-legacy-srs/about), [Chicago](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2/about_data), [Los Angeles 2019](https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z/about_data), [Los Angeles 2020-2023](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data), and [Philadelphia](https://opendataphilly.org/datasets/crime-incidents/)) and put in the folder structure "Preprocessing_raw_data_per_city/<city_name>/raw_data".
+  1. `1-generate_selected_crimes_datasets.py`:
+  2. `2-assign_grid_cell_crime_data.py`:
+  3. `3-make_crime_final_files_with_grid_cells.py`:
  
 - Mobility data: (doesn't contain a raw data folder since this dataset was accessed through a payed subscription)
-  - `1-downloading_mobility_dataset_Advan.py`:
-  - `2-preprocess_mobility_data.py`:
-  - `3-assign_grid_cell_mobility_data.py`:
+  0. 
+  1. `1-downloading_mobility_dataset_Advan.py`:
+  2. `2-preprocess_mobility_data.py`:
+  3. `3-assign_grid_cell_mobility_data.py`:
 
 ### Forecasting models
 

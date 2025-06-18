@@ -55,3 +55,6 @@ The code is separated into two main folders and structured as follows.
   2. `lr_thrs.py`:
 
 ## Model architecture
+Our model consists of three ConvLSTM blocks, used to extract the main features from the input data. Then there is the classifier section of the model, where the final hidden states of the last ConvLSTM block are processed by a two-dimensional convolutional layer, which produces the final 16×16 output image, which consists of values between 0 and 1 that indicate the likelihood of at least one crime occurring at time t on each cell. These probabilities are then turned into a binary classification using a threshold of 0.5. 
+
+![Model architecture](model_architecture.png)

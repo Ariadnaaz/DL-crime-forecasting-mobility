@@ -31,8 +31,8 @@ The code is separated into two main folders and structured as follows.
   3. `2-assign_grid_cell_crime_data.py`:
   4. `3-make_crime_final_files_with_grid_cells.py`:
  
-- Mobility data: (doesn't contain a raw data folder since this dataset was accessed through a payed subscription)
-  1. 
+- Mobility data: 
+  1. We purchased access to the "Weekly Patterns" dataset of Advan.
   2. `1-downloading_mobility_dataset_Advan.py`:
   3. `2-preprocess_mobility_data.py`:
   4. `3-assign_grid_cell_mobility_data.py`:

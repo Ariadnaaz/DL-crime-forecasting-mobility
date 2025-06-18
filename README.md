@@ -27,7 +27,7 @@ The code is separated into two main folders and structured as follows.
  
 - crime_data:
   1. Download the data for each city ([Baltimore](https://data.baltimorecity.gov/datasets/baltimore::part-1-crime-data-legacy-srs/about), [Chicago](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2/about_data), [Los Angeles 2019](https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z/about_data), [Los Angeles 2020-2023](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data), and [Philadelphia](https://opendataphilly.org/datasets/crime-incidents/)) and put in the folder structure "Preprocessing_raw_data_per_city/<city_name>/raw_data".
-  2. `1-generate_selected_crimes_datasets.py`:
+  2. `1-generate_selected_crimes_datasets.py`: It standardizes crime categories across our four U.S. cities by selecting six major crime types and normalizing their naming conventions, producing cleaned and consistent datasets for comparative analysis.
   3. `2-assign_grid_cell_crime_data.py`:
   4. `3-make_crime_final_files_with_grid_cells.py`:
  

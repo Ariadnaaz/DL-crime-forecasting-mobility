@@ -1,0 +1,12 @@
+folium==0.19.7
+geopandas==1.0.1
+numpy==2.0.2
+pandas==2.2.2
+pickleshare==0.7.5
+tqdm==4.67.1
+pandarallel==1.6.5
+shapley==2.1.1
+IPython==7.34.0
+
+
+

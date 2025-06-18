@@ -21,8 +21,8 @@ The code is separated into two main folders and structured as follows.
 
 ### Preprocessing
 - sociodemographic_data:
-  1. Download the data from [ACS](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
-  2. `1-preprocess_data_sociodem_datasets.py`: First file to start the preprocessing of this data.
+  1. Download the data from the American Community Surbey [(ACS)](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
+  2. `1-preprocess_data_sociodem_datasets.py`: It builds a mapping between spatial grid cells and U.S. Census Block Groups for four U.S. cities, and extracts and processes sociodemographic variables from the ACS for each block group over multiple years.
   3. `2-make_sociodem_grids.py`: Second and last file to finish the preprocessing of this data.
  
 - crime_data:

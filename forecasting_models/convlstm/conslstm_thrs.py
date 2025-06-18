@@ -3,7 +3,7 @@ import pickle
 import sys
 from sklearn.metrics import confusion_matrix
 import scipy.ndimage
-
+import os
 
 def get_neighbours(matrix, indices, distance, mask=None):
     """
@@ -77,7 +77,7 @@ def get_custom_conf_matrix(orig, predi, dist=1, mask=None):
     return rec, prec, f1_orig, rec_new, prec_new, f1_new, pred
 
 def calculate_performance_per_threhold(ref_city, crime_agg, seed):
-    full_mask = np.load(f"../pre_training_data/NaN_masks/{ref_city}_mask_final.npy") # i think mask is not necessary for these metrics
+    full_mask = np.load(f"../../pre_training_data/NaN_masks/{ref_city}_mask_final.npy") # i think mask is not necessary for these metrics
 
     with open(f"predictions/convlstm_i_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as f:
         subgrid_indices = pickle.load(f)
@@ -127,11 +127,11 @@ def calculate_performance_per_threhold(ref_city, crime_agg, seed):
             np.mean(rec_new_list), np.mean(prec_new_list), np.mean(f1_new_list)
         ])
 
-    output_path = f"predictions/perf_thrs/convlstm_perf_thrs_{ref_city}_{crime_agg}_{seed}.pkl"
+    os.makedirs("perf_thrs", exist_ok=True)
+    output_path = f"perf_thrs/convlstm_perf_thrs_{ref_city}_{crime_agg}_{seed}.pkl"
     with open(output_path, "wb") as fp:
         pickle.dump(perf_list, fp)
     print(f"Saved performance metrics to {output_path}")
-
     
 calculate_performance_per_threhold(ref_city = sys.argv[1],
                                    crime_agg = sys.argv[2],

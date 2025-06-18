@@ -8,7 +8,7 @@ This repository contains all the code used for the paper "Deep Learning for Crim
 
 **Objectives:** To develop a deep learning framework to evaluate if and how incorporating micro-level mobility features, alongside historical crime and sociodemographic data, enhances predictive performance in crime forecasting at fine-grained spatial and temporal resolutions.
 
-**Methods:** We advance the literature on computational methods and crime forecasting by focusing on four U.S.\ cities (i.e., Baltimore, Chicago, Los Angeles, and Philadelphia). We employ crime incident data obtained from each city's police department, combined with sociodemographic data from the American Community Survey and human mobility data from Advan, collected from 2019 to 2023. This data is aggregated into grids with equally sized cells of 0.077 sq. miles (0.2 sq. kms) and used to train our deep learning forecasting model that predicts crime occurrences 12 hours ahead using 14-day and 2-day input sequences.
+**Methods:** We advance the literature on computational methods and crime forecasting by focusing on four U.S. cities (i.e., Baltimore, Chicago, Los Angeles, and Philadelphia). We employ crime incident data obtained from each city's police department, combined with sociodemographic data from the American Community Survey and human mobility data from Advan, collected from 2019 to 2023. This data is aggregated into grids with equally sized cells of 0.077 sq. miles (0.2 sq. kms) and used to train our deep learning forecasting model that predicts crime occurrences 12 hours ahead using 14-day and 2-day input sequences.
 
 **Results:** Incorporating mobility features improves predictive performance, especially when using shorter input sequences. Noteworthy, however, the best results are obtained when both mobility and sociodemographic features are used together, with our deep learning model achieving the highest recall, precision, and F1 score in all four cities, outperforming alternative methods. With this configuration, longer input sequences enhance predictions for violent crimes, while shorter sequences are more effective for property crimes.
 
@@ -21,7 +21,7 @@ The code is separated into two main folders and structured as follows.
 
 ### Preprocessing
 - sociodemographic_data:
-  1. Download the data from the American Community Surbey [(ACS)](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
+  1. Download the data from the [American Community Survey (ACS)](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
   2. `1-preprocess_data_sociodem_datasets.py`: It builds a mapping between spatial grid cells and U.S. Census Block Groups for four U.S. cities, and extracts and processes sociodemographic variables from the ACS for each block group over multiple years.
   3. `2-make_sociodem_grids.py`: It aggregates the sociodemographic data obtained in the previous coode at the census block groups level to grid cells for each city across 2019–2021, producing one final dataset per city with yearly values per grid cell.
  

@@ -28,8 +28,8 @@ The code is separated into two main folders and structured as follows.
 - crime_data:
   1. Download the data for each city ([Baltimore](https://data.baltimorecity.gov/datasets/baltimore::part-1-crime-data-legacy-srs/about), [Chicago](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2/about_data), [Los Angeles 2019](https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z/about_data), [Los Angeles 2020-2023](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data), and [Philadelphia](https://opendataphilly.org/datasets/crime-incidents/)) and put in the folder structure "Preprocessing_raw_data_per_city/<city_name>/raw_data".
   2. `1-generate_selected_crimes_datasets.py`: It standardizes crime categories across our four U.S. cities by selecting six major crime types and normalizing their naming conventions, producing cleaned and consistent datasets for comparative analysis.
-  3. `2-assign_grid_cell_crime_data.py`:
-  4. `3-make_crime_final_files_with_grid_cells.py`:
+  3. `2-assign_grid_cell_crime_data.py`: It assigns a grid cell number to each crime event based on its longitude and latitude, using a regular grid over the city. This spatial labeling is repeated for all four cities and five major crime types (i.e., Assault, Burglary, Homicide, MVT, and Robbery).
+  4. `3-make_crime_final_files_with_grid_cells.py`: It generates yearly matrix of crime counts per hour, which is then merged into a final grid matrix for each city for each crime type for all years together.
  
 - mobility_data: 
   1. We purchased access to the "Weekly Patterns" dataset of Advan.

@@ -33,7 +33,7 @@ The code is separated into two main folders and structured as follows.
  
 - mobility_data: 
   1. We purchased access to the "Weekly Patterns" dataset of Advan.
-  2. `1-downloading_mobility_dataset_Advan.py`:
+  2. `1-downloading_mobility_dataset_Advan.py`: It automates the download and verification of weekly mobility data from the DeweyData API (Advan product) over a multi-year period.
   3. `2-preprocess_mobility_data.py`:
   4. `3-assign_grid_cell_mobility_data.py`:
 

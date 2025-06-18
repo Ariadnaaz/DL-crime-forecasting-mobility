@@ -79,13 +79,13 @@ def get_custom_conf_matrix(orig, predi, dist=1, mask=None):
 def calculate_performance_per_threhold(ref_city, crime_agg, seed):
     full_mask = np.load(f"../../pre_training_data/NaN_masks/{ref_city}_mask_final.npy") # not necessary for these metrics
 
-    with open(f"lr_i_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as f:
+    with open(f"predictions/lr_i_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as f:
         subgrid_indices = pickle.load(f)
 
-    with open(f"lr_predictions_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as file:
+    with open(f"predictions/lr_predictions_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as file:
         data_pred = pickle.load(file)
 
-    with open(f"lr_targets_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as file:
+    with open(f"predictions/lr_targets_{ref_city}_{crime_agg}_{seed}.pkl", 'rb') as file:
         data_orig = pickle.load(file)
 
     originals = data_orig

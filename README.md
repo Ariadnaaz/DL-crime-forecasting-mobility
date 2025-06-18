@@ -23,7 +23,7 @@ The code is separated into two main folders and structured as follows.
 - sociodemographic_data:
   1. Download the data from the American Community Surbey [(ACS)](https://www2.census.gov/geo/tiger/TIGER_DP/) (specifically the files containing BG_06, BG_17, BG_24, and GB_42 for the year 2019, 2020 and 2021) and put in a folder named "raw_data".
   2. `1-preprocess_data_sociodem_datasets.py`: It builds a mapping between spatial grid cells and U.S. Census Block Groups for four U.S. cities, and extracts and processes sociodemographic variables from the ACS for each block group over multiple years.
-  3. `2-make_sociodem_grids.py`: Second and last file to finish the preprocessing of this data.
+  3. `2-make_sociodem_grids.py`: It aggregates the sociodemographic data obtained in the previous coode at the census block groups level to grid cells for each city across 2019–2021, producing one final dataset per city with yearly values per grid cell.
  
 - crime_data:
   1. Download the data for each city ([Baltimore](https://data.baltimorecity.gov/datasets/baltimore::part-1-crime-data-legacy-srs/about), [Chicago](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2/about_data), [Los Angeles 2019](https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z/about_data), [Los Angeles 2020-2023](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data), and [Philadelphia](https://opendataphilly.org/datasets/crime-incidents/)) and put in the folder structure "Preprocessing_raw_data_per_city/<city_name>/raw_data".

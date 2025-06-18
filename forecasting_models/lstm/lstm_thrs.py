@@ -3,6 +3,7 @@ import pickle
 import sys
 from sklearn.metrics import confusion_matrix
 import scipy.ndimage
+import os
 
 
 def get_neighbours(matrix, indices, distance, mask=None):

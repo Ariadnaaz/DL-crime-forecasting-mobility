@@ -124,6 +124,7 @@ def calculate_performance_per_threhold(ref_city, crime_agg, seed):
             np.mean(rec_new_list), np.mean(prec_new_list), np.mean(f1_new_list)
         ])
 
+    os.makedirs("perf_thrs", exist_ok=True)
     output_path = f"perf_thrs/rf_perf_thrs_{ref_city}_{crime_agg}_{seed}.pkl"
     with open(output_path, "wb") as fp:
         pickle.dump(perf_list, fp)

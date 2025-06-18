@@ -282,6 +282,7 @@ def make_datasets_of_submatrices_final(city_folder,granularity,gu,grid_size,grid
 
     # save all as one big compressed numpy
     print("\n4. Save big compressed numpy...")
+    os.makedirs(f"{output_folder}", exist_ok=True)
     np.savez_compressed(f'{output_folder}/{city_folder}_{output_name}_chrono',
                         x_train=x_t_sub,y_train=y_t_sub,x_val=x_v_sub,y_val=y_v_sub,i_train=index_sub_t,i_val=index_sub_v)
     print(f"Final sizes training: x {x_t_sub.shape}, y {y_t_sub.shape}")

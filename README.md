@@ -38,6 +38,19 @@ The code is separated into two main folders and structured as follows.
   4. `3-assign_grid_cell_mobility_data.py`:
 
 ### Forecasting models
-
+- pre_training_data:
+- convlstm:
+  1. `convlstm4.py`:
+  2. `convlstm_model.py`:
+  3. `convlstm_thrs.py`:
+- lstm:
+  1. `lstm_model.py`:
+  2. `lstm_thrs.py`:
+- rf:
+  1. `rf_model.py`:
+  2. `rf_thrs.py`:
+- lr:
+  1. `lr_model.py`:
+  2. `lr_thrs.py`:
 
 ## Model architecture

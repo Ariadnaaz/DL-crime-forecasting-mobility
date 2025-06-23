@@ -1,10 +1,6 @@
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 import geopandas as gpd
 from shapely.geometry import Point
-import matplotlib.pyplot as plt
-from statistics import mean
 import numpy as np
 
 def extract_multipolygon_city(file_path,city_name):

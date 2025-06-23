@@ -41,18 +41,18 @@ The code is separated into two main folders and structured as follows.
 - pre_training_data:
   1. `generate_training_test_datasets.py`: It loads the crime, mobility, and sociodemographic data for a city, builds spatiotemporal sequences using a sliding window, extracts random crime-rich subgrids, and saves the resulting train/validation datasets.
 - convlstm:
-  1. `convlstm4.py`:
-  2. `convlstm_model.py`:
-  3. `convlstm_thrs.py`:
+  1. `convlstm4.py`: It defines a multi-layer ConvLSTM model using PyTorch, since it's not a model already available.
+  2. `convlstm_model.py`: It trains the ConvLSTM model and stores the predictions (probabilities) obtained using the test set.
+  3. `convlstm_thrs.py`: It transforms the probability outputs to a binary classifications to get the final model performance on the test set, using different thresholds.
 - lstm:
-  1. `lstm_model.py`:
-  2. `lstm_thrs.py`:
+  1. `lstm_model.py`: It trains the LSTM model and stores the predictions (probabilities) obtained using the test set.
+  2. `lstm_thrs.py`: It transforms the probability outputs to a binary classifications to get the final model performance on the test set, using different thresholds
 - rf:
-  1. `rf_model.py`:
-  2. `rf_thrs.py`:
+  1. `rf_model.py`: It trains the RF model and stores the predictions (probabilities) obtained using the test set.
+  2. `rf_thrs.py`: It transforms the probability outputs to a binary classifications to get the final model performance on the test set, using different thresholds
 - lr:
-  1. `lr_model.py`:
-  2. `lr_thrs.py`:
+  1. `lr_model.py`: It trains the LR model and stores the predictions (probabilities) obtained using the test set.
+  2. `lr_thrs.py`: It transforms the probability outputs to a binary classifications to get the final model performance on the test set, using different thresholds
 
 ## Model architecture
 Our model consists of three ConvLSTM blocks, used to extract the main features from the input data. Then there is the classifier section of the model, where the final hidden states of the last ConvLSTM block are processed by a two-dimensional convolutional layer, which produces the final 16×16 output image, which consists of values between 0 and 1 that indicate the likelihood of at least one crime occurring at time t on each cell. These probabilities are then turned into a binary classification using a threshold of 0.5. 

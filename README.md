@@ -34,12 +34,12 @@ The code is separated into two main folders and structured as follows.
 - mobility_data: 
   1. We purchased access to the "Weekly Patterns" dataset of Advan.
   2. `1-downloading_mobility_dataset_Advan.py`: It automates the download and verification of weekly mobility data from the DeweyData API (Advan product) over a multi-year period.
-  3. `2-preprocess_mobility_data.py`:
-  4. `3-assign_grid_cell_mobility_data.py`:
+  3. `2-preprocess_mobility_data.py`: It groups files into one file per week from 2019 to 2023 by filtering city-specific records, extracts hourly visit data and saves cleaned weekly datasets.
+  4. `3-assign_grid_cell_mobility_data.py`: It generates a mapping between POIs and grid numbers, then creates files with each mobility variable for each cell per year, then merges all years together to have one file per city.
 
 ### Forecasting models
 - pre_training_data:
-  1. `generate_training_test_datasets.py`:
+  1. `generate_training_test_datasets.py`: It loads the crime, mobility, and sociodemographic data for a city, builds spatiotemporal sequences using a sliding window, extracts random crime-rich subgrids, and saves the resulting train/validation datasets.
 - convlstm:
   1. `convlstm4.py`:
   2. `convlstm_model.py`:

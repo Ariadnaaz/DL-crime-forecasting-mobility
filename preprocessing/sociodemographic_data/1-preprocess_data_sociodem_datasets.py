@@ -31,7 +31,7 @@ def extract_multipolygon_city(file_path,city_name):
             return gpd.GeoDataFrame.from_features(feature)
 
 def generate_grid(selected_city,grid_size,plot=True):
-  gdf = extract_multipolygon_city(file_path='../city_multipolygons.geojson',city_name=selected_city)
+  gdf = extract_multipolygon_city(file_path='../../city_multipolygons.geojson',city_name=selected_city)
 
   bbox = gdf.total_bounds
   min_lon, min_lat, max_lon, max_lat = (bbox[2],bbox[1],bbox[0],bbox[3])
@@ -100,7 +100,7 @@ def find_geoids_per_grid_cell(selected_city,city_folder,state,county,output_fold
   print("Shape dataframe after adding GEOID list: ", df_final.shape)
 
   # make final output folder if it doesn't exist
-  Path(f"./{output_folder}").mkdir(exist_ok=True)
+  os.makedirs(f'{output_folder}/', exist_ok=True)
 
   df_final.to_csv(f'{output_folder}/{city_folder}_cell_to_geoids_map.csv')
   print("Final cell to geoids map saved!")
@@ -173,7 +173,7 @@ def get_data_per_geoid_city_year(city_folder,state_fips,year,output_folder):
 
     # drop unnecessary columns
     df_gdf.drop(columns=['B01001e1','B02001e1','B12001e2','B12001e11','B15003e1','B23025e1'],inplace=True)
-
+    os.makedirs(f'{output_folder}/', exist_ok=True)
     df_gdf.to_csv(f'{output_folder}/{city_folder}_sociodem_{year}.csv')
     print("File saved!")
 

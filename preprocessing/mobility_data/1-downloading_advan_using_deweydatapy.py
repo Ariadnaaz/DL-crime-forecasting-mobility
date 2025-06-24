@@ -22,6 +22,7 @@ files_df = ddp.get_file_list(apikey_, pp_advan_wp,
                              print_info = True);
 
 # download all the list of files
+os.makedirs("raw_data/", exist_ok=True)
 ddp.download_files(files_df, "raw_data/", skip_exists = True)
 
 

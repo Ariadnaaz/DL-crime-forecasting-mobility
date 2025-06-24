@@ -1,11 +1,7 @@
 import numpy as np
 import sys
-import scipy
 import sklearn
-from sklearn.datasets import make_multilabel_classification
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
 import pickle
 import os
 
@@ -27,7 +23,7 @@ def concat_all_cities(data_name,input_folder,ref_city,cities_list,crime_agg):
     x1 = np.load(f'../../pre_training_data/{input_folder}/{ref_city}_{crime_agg}_chrono.npz')[data_name]
     if cities_list != None:
         for city in cities_list:
-            x2 = np.load(f'../pre_training_data/{input_folder}/{city}_{crime_agg}_chrono.npz')[data_name]
+            x2 = np.load(f'../../pre_training_data/{input_folder}/{city}_{crime_agg}_chrono.npz')[data_name]
             x1 = np.concatenate((x1, x2))
     return x1
 

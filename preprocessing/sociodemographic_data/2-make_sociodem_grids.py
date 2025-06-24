@@ -136,7 +136,7 @@ def make_final_grid_sociodem(city_name,city_folder,input_folder,map_folder,outpu
   df_all = pd.concat(df_all_list,axis=1)
 
   # make final output folder if it doesn't exist
-  #Path(f"drive/MyDrive/Sociodemographic_data/{output_folder}").mkdir(exist_ok=True)
+  os.makedirs(f"{output_folder}/", exist_ok=True)
 
   df_all.T.to_csv(f"{output_folder}/{city_folder}_sociodem_all_final_grid.csv")
   print("Shape final dataframe: ", df_all.T.shape)

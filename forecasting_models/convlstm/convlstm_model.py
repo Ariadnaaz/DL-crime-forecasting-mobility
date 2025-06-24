@@ -294,6 +294,7 @@ def evaluate_model(model, val_loader, criterions, device, seed):
     all_predictions = torch.sigmoid(torch.from_numpy(all_predictions)).numpy()
 
     # save prediction and truth before applying threshold
+    os.makedirs("predictions/", exist_ok=True)
     with open(f"predictions/convlstm_predictions_{ref_city}_{crime_agg}_{seed}.pkl", "wb") as f_p:  
         pickle.dump(all_predictions, f_p)
     with open(f"predictions/convlstm_targets_{ref_city}_{crime_agg}_{seed}.pkl", "wb") as f_t:  

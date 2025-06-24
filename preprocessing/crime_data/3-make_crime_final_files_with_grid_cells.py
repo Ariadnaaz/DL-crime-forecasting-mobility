@@ -71,7 +71,7 @@ def make_final_grid_files_year_crime(city_folder,crime,in_out_folder,years,grid_
     df_final = df_grouped.reindex(idx)
 
     # make folder to save yearly file per city if it doesn't already exist
-    Path(f"{in_out_folder}/{city_folder}_cells").mkdir(exist_ok=True)
+    os.makedirs(f"{in_out_folder}/Final_grid/", exist_ok=True)
 
     # save final dataset
     df_final.to_csv(f'{in_out_folder}/Final_grid/{city_folder}_{crime}_{y}_final_grid.csv')
@@ -131,10 +131,8 @@ def make_final_grid_city_crime(city_folder,crime,in_out_folder,years):
   print("Concatenating and saving final dataframe...")
   df_all = pd.concat(df_all_list,axis=1)
 
-  # make final output folder if it doesn't exist
-  Path(f"{in_out_folder}").mkdir(exist_ok=True)
-
   # save final output
+  os.makedirs(f"{in_out_folder}/Final_all/", exist_ok=True)
   df_all.T.to_csv(f"{in_out_folder}/Final_all/{city_folder}_{crime}_all_final_grid.csv")
   print("Shape final dataframe: ", df_all.T.shape)
   print("File saved!\n")

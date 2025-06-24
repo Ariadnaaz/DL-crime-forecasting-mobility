@@ -54,6 +54,8 @@ The code is separated into two main folders and structured as follows.
 - lr:
   1. `lr_model.py`: It trains the LR model and stores the predictions (probabilities) obtained using the test set.
   2. `lr_thrs.py`: It transforms the probability outputs to a binary classifications to get the final model performance on the test set, using different thresholds
+     
+The package requirements can be found in the file `requirements.txt` and everything was developed and executed using Python 3.11.13.
 
 ## Model architecture
 Our model consists of three ConvLSTM blocks, used to extract the main features from the input data. Then there is the classifier section of the model, where the final hidden states of the last ConvLSTM block are processed by a two-dimensional convolutional layer, which produces the final 16×16 output image, which consists of values between 0 and 1 that indicate the likelihood of at least one crime occurring at time t on each cell. These probabilities are then turned into a binary classification using a threshold of 0.5. 

@@ -112,6 +112,7 @@ def process_week(week,year):
 
         # merge the two dataframes
         df_complete = pd.concat([df_filtered, df1], axis=1)
+        os.makedirs("preprocessed_data/", exist_ok=True)
         df_complete.to_csv(f"preprocessed_data/Mobility_data_{year}_week_{week:02}.csv")
         print(f"Original size for week {week}: ", df_complete.shape)
 

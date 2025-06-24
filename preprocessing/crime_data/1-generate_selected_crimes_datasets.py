@@ -31,6 +31,7 @@ df_filtered['crime_type'] = df_filtered['crime_type'].str.title()
 
 
 # save final dataset
+os.makedirs('Crime_data_outputs/5_years/', exist_ok=True)
 df_filtered.to_csv(f'Crime_data_outputs/5_years/{city_folder}_selected_crimes_clean_all.csv')
 print("Saved dataset")
 print(df_filtered['crime_type'].unique().tolist())

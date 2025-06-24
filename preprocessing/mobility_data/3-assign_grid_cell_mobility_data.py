@@ -154,7 +154,7 @@ def generate_mobility_pois_to_grid_num_map(city_name,city_folder,input_folder,ou
   mapping = dict(df_final[['placekey', 'cell']].values)
 
   # make final output folder if it doesn't exist
-  Path(f"drive/MyDrive/PhD_thesis/Mobility_data/preprocessed_data/{output_folder}").mkdir(exist_ok=True,parents=True)
+  Path(f"preprocessed_data/{output_folder}").mkdir(exist_ok=True,parents=True)
 
   with open(f'preprocessed_data/{output_folder}/{city_folder}_mobility_all_grid_map.pkl', 'wb') as fp:
     pickle.dump(mapping, fp)
@@ -449,6 +449,7 @@ def make_grid_files_year_mobility_poi_categ(city_name,city_folder,path_map,input
       df1 = pd.concat([df1,df2],axis=1) # this concat assumes cell was the index column
 
     df_year = df1.copy()
+    os.makedirs(f"preprocessed_data/{output_folder}/", exist_ok=True)
     df_year.to_csv(f"preprocessed_data/{output_folder}/{city_folder}_mobility_{year}_{poi_categ}_pre_grid.csv")
     print("Shape final file: ",df_year.shape)
     print("Saved file!")
@@ -596,7 +597,7 @@ def make_grid_files_year_mobility_poi_diversity(city_name,city_folder,path_map,i
       df1 = pd.concat([df1,df2],axis=1)
 
     df_year = df1.copy() 
-    print(df_year.shape)
+    os.makedirs(f"preprocessed_data/{output_folder}/", exist_ok=True)
     df_year.to_csv(f"preprocessed_data/{output_folder}/{city_folder}_mobility_{year}_diversity_pre_grid.csv")
     print("Saved file!")
 
@@ -661,6 +662,7 @@ def make_final_grid_city_mobility(city_folder,in_out_folder,poi_categ):
   df_all = pd.concat(df_all_list,axis=1)
   #df_all = df_all.iloc[:, :-extra_hours_lastyear] # remove extra hours from the next year (not necessary if last year is 2023)
 
+  os.makedirs(f"preprocessed_data/{in_out_folder}/Final_all/", exist_ok=True)
   df_all.T.to_csv(f"preprocessed_data/{in_out_folder}/Final_all/{city_folder}_mobility_all_{poi_categ}_final_grid.csv")
   print("Shape final dataframe: ", df_all.T.shape)
 

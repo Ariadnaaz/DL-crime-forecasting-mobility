@@ -102,10 +102,8 @@ def generate_crime_files_with_grid_num(city_name,city_folder,crimes_list,output_
     print("Finding the grid cell for each point...")
     df_final = df_crime.merge(df_crime.parallel_apply(find_polygon,df=df_poly,axis=1),left_index=True, right_index= True)
 
-    # make final output folder if it doesn't exist
-    Path(f"{output_folder}").mkdir(exist_ok=True)
-
     # save final dataset
+    os.makedirs(f'Crime_data_outputs/{output_folder}/', exist_ok=True)
     df_final.to_csv(f'Crime_data_outputs/{output_folder}/{city_folder}_{crime}_clean_all_grid.csv')
     print("Final dataset saved!\n")
 

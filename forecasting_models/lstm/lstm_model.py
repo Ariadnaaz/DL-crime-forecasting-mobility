@@ -1,23 +1,16 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torchsummary import summary
-from torchviz import make_dot
 from torch.utils.data import DataLoader, TensorDataset, random_split
 import torch.nn.functional as F
-from torch.nn.functional import one_hot
 from torch import Tensor
 from typing import Union
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR
-from sklearn.metrics import roc_curve
 
 print("Should return True if a GPU is available: ",torch.cuda.is_available())  
 print("Number of GPUs available: ",torch.cuda.device_count())  
 print("Name of the first GPU: ",torch.cuda.get_device_name(0)) 
 
-from sklearn.utils import class_weight
-from sklearn.metrics import mean_squared_error, mean_absolute_error, precision_score, recall_score, f1_score
-from sklearn.metrics import confusion_matrix
 import scipy, scipy.ndimage
 import pickle
 import sys
@@ -435,6 +428,7 @@ def lstm_performance(batch_size,n_epochs,ref_city, cities_list, input_folder, cr
     print("Training model...") 
     train_model(model, train_loader, test_loader, criterions, optimizer, n_epochs, grid_size, device, seed, ref_city, crime_agg)
 
+    os.makedirs("predictions", exist_ok=True)
     with open(f"predictions/lstm_i_{ref_city}_{crime_agg}_{seed}.pkl", "wb") as f:  
         pickle.dump(i_val, f)
 

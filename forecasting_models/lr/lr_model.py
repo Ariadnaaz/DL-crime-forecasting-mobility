@@ -27,7 +27,7 @@ def concat_all_cities(data_name,input_folder,ref_city,cities_list,crime_agg):
             x1 = np.concatenate((x1, x2))
     return x1
 
-x_train = concat_all_cities(data_name='x_train',input_folder=input_folder,ref_city=city_folder,cities_list=cities_list,crime_agg=crime_agg)[:,-1,:,:,:] # taking only last frame in sequence so we can predict the next
+x_train = concat_all_cities(data_name='x_train',input_folder=input_folder,ref_city=city_folder,cities_list=cities_list,crime_agg=crime_agg)[:,-1,:,:,:]
 y_train = concat_all_cities(data_name='y_train',input_folder=input_folder,ref_city=city_folder,cities_list=cities_list,crime_agg=crime_agg)
 i_train = concat_all_cities(data_name='i_train',input_folder=input_folder,ref_city=city_folder,cities_list=cities_list,crime_agg=crime_agg) 
 x_val = concat_all_cities(data_name='x_val',input_folder=input_folder,ref_city=city_folder,cities_list=cities_list,crime_agg=crime_agg)[:,-1,:,:,:] 

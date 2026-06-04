@@ -2,7 +2,7 @@
 
 This repository contains all the code used for the paper "Deep Learning for Crime Forecasting: The Role of Mobility at Fine-grained Spatiotemporal Scales" by Ariadna Albors Zumel, Michele Tizzoni, and Gian Maria Campedelli.
 
-📄 You can find the full paper here:
+📄 You can find the full paper here: [https://doi.org/10.1007/s10940-025-09629-3](https://doi.org/10.1007/s10940-025-09629-3)
 
 ## Introduction
 
